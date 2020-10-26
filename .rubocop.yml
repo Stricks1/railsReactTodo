@@ -1,7 +1,7 @@
 AllCops:
   TargetRubyVersion: 2.5.0
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   Enabled: true
   EnforcedStyle: with_fixed_indentation
 
@@ -13,11 +13,11 @@ Layout/EndAlignment:
   Enabled: true
   EnforcedStyleAlignWith: variable
 
-Layout/IndentArray:
+Layout/FirstArrayElementIndentation:
   Enabled: true
   EnforcedStyle: consistent
 
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   Enabled: true
   EnforcedStyle: consistent
 
@@ -29,10 +29,19 @@ Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
 
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: false
+
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
 
 Lint/NestedMethodDefinition:
+  Enabled: false
+
+Lint/RaiseException:
+  Enabled: false
+
+Lint/StructNewOverride:
   Enabled: false
 
 Style/AsciiComments:
@@ -48,6 +57,18 @@ Style/Documentation:
 Style/EmptyMethod:
   Enabled: true
   EnforcedStyle: expanded
+
+Style/ExponentialNotation:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: false
 
 Style/Lambda:
   Enabled: true
