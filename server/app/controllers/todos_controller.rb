@@ -25,6 +25,7 @@ class TodosController < ApplicationController
   def update
     if @todo.update(
       completed: params['completed'],
+      description: params['description'],
     )
       render json: TodoSerializer.new(@todo).serialized_json
     else
