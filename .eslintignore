@@ -1,0 +1,2 @@
+client/src/serviceWorker.js
+server/app/assets/javascripts/*.js
