@@ -60,7 +60,6 @@ const Todo = ({ todo }) => {
     } else {
       descInfo = document.getElementById(paragId).innerHTML
     }
-    console.log(descInfo);
     changeTodo(id, checkEl, descInfo)
   };
 
