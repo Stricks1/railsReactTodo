@@ -21,6 +21,13 @@ const TodosList = () => {
   } else {
     filterComp = false;
   }
+  let lengthActive = 0;
+
+  if (todosState.todos.data) {
+    lengthActive = todosState.todos.data.filter(function(item){
+      return !item.attributes.completed;
+    }).length;
+  }
 
   return (
     <div>
@@ -41,7 +48,7 @@ const TodosList = () => {
         }
       </div>
       <div className="filter-container">
-          <FilterBar />
+          <FilterBar filter={filter} active={lengthActive} />
       </div>
     </div>
   );
