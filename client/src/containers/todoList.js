@@ -37,7 +37,7 @@ const TodosList = () => {
           <img className="image-load" src={loadImg} alt="loadingImage" />
         </div>
         )}
-      <ul className="list-container">
+      <ul className="list-container" data-testid="list-todos">
         {
           !todosState.isFetching && todosState.todos.data
           && 
@@ -47,7 +47,7 @@ const TodosList = () => {
               || filter === 'All'))
         }
       </ul>
-      <div className="filter-container">
+      <div data-testid="footer-filter" className="filter-container">
           <FilterBar filter={filter} active={lengthActive} />
       </div>
     </div>

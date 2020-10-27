@@ -102,7 +102,7 @@ const Todo = ({ todo }) => {
           onChange={() => handleChangeCheckbox(id)} checked={completed ? 'checked' : ''} />
         <span className="checkmark"></span>
       </label>
-      <p id={"parag"+id} className="description-info" 
+      <p id={"parag"+id} className="description-info"
         onDoubleClick={() => handleDoubleClick(id, completed)}>{description}</p>
       {isShown && (
       <span className="delete" 

@@ -20,8 +20,9 @@ const FilterBar = ({ filter, active }) => {
       <ul className="d-flex list-unstyled justify-content-between w-75 list-filter align-self-center" name="selOpt" id="selOpt" value={filter} >
         {
           FILTOPT.map(item => (
-            <li className={`selectFilter ${ (filter === item) ? "selected-filter" : ""}`} key={item} onClick={e => changeFilterOpt(item)}>
-              {item}
+            <li className={`selectFilter ${ (filter === item) ? "selected-filter" : ""}`} key={item} 
+              onClick={e => changeFilterOpt(item)} data-testid={`${item}${ (filter === item) ? "-selected-filter" : ""}`}>
+                {item}
             </li>
           ))
         }
