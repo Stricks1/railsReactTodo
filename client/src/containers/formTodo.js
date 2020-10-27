@@ -48,9 +48,11 @@ const AddTodo = () => {
         }}
       >
         <input ref={self => (description = self)} 
-          onKeyPress={handleKeyPress} 
+          onKeyPress={handleKeyPress}
+          className="input-create"
+          placeholder="What needs to be done?"
         />
-        <button id="formTodoBtn" type="submit">Add Todo</button>
+        <button id="formTodoBtn" hidden="hidden" type="submit">Add Todo</button>
       </form>
     </div>
   )

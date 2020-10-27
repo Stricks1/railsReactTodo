@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { todosLoad } from '../actions/requestTodo';
 import { URL, LIST } from '../helpers/constants';
@@ -7,6 +7,7 @@ const Todo = ({ todo }) => {
   const {
     description, completed, id
   } = todo;
+  const [isShown, setIsShown] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -74,6 +75,7 @@ const Todo = ({ todo }) => {
     const checkEl = document.getElementById(completeId).checked
     var input = document.createElement('input');
     input.setAttribute('id', elemId);
+    input.setAttribute('class', 'input-description');
     input.value = paragEl.innerHTML;
     input.addEventListener('keydown', function(event){
         if(event.key === 'Escape'){
@@ -83,29 +85,37 @@ const Todo = ({ todo }) => {
           changeTodo(id, checkEl, input.value)
         }
       });
+    input.addEventListener('focusout', function(event){
+          input.parentNode.replaceChild(paragEl, input);
+        })
     paragEl.parentNode.replaceChild(input, paragEl);
+    input.focus();
   };
 
   return (
-    <div>
-      { completed &&
-        <input type="checkbox" id={"completion"+id} value={id} 
-          onChange={() => handleChangeCheckbox(id)} checked />
-      }
-      { !completed &&
-        <input type="checkbox" id={"completion"+id} value={id} 
-          onChange={() => handleChangeCheckbox(id)} />
-      }
-      <p id={"parag"+id} 
+    <li className={`d-flex justify-content-between li-item ${completed ? "done" : "active"}`}
+      onMouseEnter={() => setIsShown(true)}
+      onMouseLeave={() => setIsShown(false)}
+    >
+      <label className="checkbox-container">
+        <input type="checkbox" id={"completion"+id} value={id} className="toggle-todo"
+          onChange={() => handleChangeCheckbox(id)} checked={completed ? 'checked' : ''} />
+        <span className="checkmark"></span>
+      </label>
+      <p id={"parag"+id} className="description-info" 
         onDoubleClick={() => handleDoubleClick(id, completed)}>{description}</p>
-      {completed.toString()}
+      {isShown && (
       <span className="delete" 
         onClick={() => {if(window.confirm('Are you sure to delete?')){
               handleDelete(id) 
             }
           }
         }>X</span>
-    </div>
+      )}
+      {!isShown && (
+        <span className="delete" />
+      )}
+    </li>
   );
 };
 
