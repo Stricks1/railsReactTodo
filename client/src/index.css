@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.bg-grey {
+  background-color: #e3e3e3;
+}
+
 .header-todo {
   margin-top: 5%;
   color: rgba(175, 47, 47, 0.15);
@@ -30,6 +34,7 @@ code {
   padding: 10px;
   border: solid 1px grey;
   border-bottom: 0;
+  background-color: white;
 }
 
 .input-create:placeholder-shown {
@@ -40,6 +45,7 @@ code {
   margin: auto;
   list-style: none;
   padding: 0;
+  background-color: white;
 }
 
 .li-item {
@@ -134,6 +140,7 @@ code {
   height: 57px;
   font-size: 14px;
   color: grey;
+  background-color: white;
 }
 
 .list-filter {
